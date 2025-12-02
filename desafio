@@ -1,0 +1,61 @@
+**DESAFIO — Normalização Pacientes**
+
+**1) Especificação textual do esquema (normalizado)**
+
+ Especialidade (codEsp, nomeEsp)
+ PK: codEsp
+
+ Medico (codMedico, nomeMed, codEsp)
+ PK: codMedico
+ FK: codEsp referencia Especialidade.codEsp
+
+ Paciente (codPaciente, nomePac, dtNasc, sexo, fone, endereco)
+ PK: codPaciente
+
+ Consulta (codConsulta, codPaciente, codMedico, data, diagnostico)
+ PK: codConsulta
+ FK: codPaciente referencia Paciente.codPaciente
+ FK: codMedico referencia Medico.codMedico
+
+**2) Instância do modelo (normalizado)**
+
+### ESPECIALIDADE
+| codigoEsp  | nomeEsp        |
+|-----------:|----------------|
+|      1     | Clínico Geral  | 
+|      3     | Ortopedista    | 
+|      5     | Neurologista   | 
+|     10     | Otorrino       |    
+
+### MEDICO  
+| codMedico | nomeMed         | codEsp |
+|----------:|-----------------|--------|
+|    012    | Jose Garcia     |    3   |
+|    013    | Carla Monteiro  |    1   |
+|    014    | Clarice Pedrosa |    5   |
+|    019    | Neusa Santos    |   10   |
+
+### PACIENTE  
+|codPaciente| nomePac          | dtNasc       | sexo | fone                      |   endereco   |
+|----------:|------------------|--------------|------|---------------------------|--------------|
+|    111    | Maria Silva      |  20/05/1950  |   F  |  3211-4141 / 9919-1900    |  Rua A, 25   |
+|    222    | Pedro Oliveira   |  29/08/1980  |   M  |  9191-9191                |  Rua AB, 322 |
+|    333    | Ana Cardoso      |  25/02/1992  |   F  |  9116-1616                |  Rua AC, 444 |
+|    444    | Ricardo Oliveira |  12/09/1940  |   M  |  9191-0000                |  Rua AI, 29  |
+
+### CONSULTA  
+|codConsulta | codPaciente | codMedico | data         | diagnistico               | 
+|-----------:|-------------|-----------|--------------|---------------------------|
+|    0053    |     111     |    012    |  20/03/2022  |  Dores na região lombar   |
+|    0076    |     111     |    012    |  25/03/2022  |  Avaliação medicamentos   | 
+|    0085    |     222     |    013    |  25/03/2022  |  Exames Rotina            | 
+|     091    |     333     |    014    |  25/03/2022  |  Enxaqueca                | 
+|     099    |     444     |    019    |  25/03/2022  |  Sinusite                 | 
+
+
+
+
+
+   
+
+
